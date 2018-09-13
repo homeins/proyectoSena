@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "detalle")
@@ -70,7 +70,7 @@ public class Detalle implements Serializable {
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Producto productoId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "detalleId", fetch = FetchType.LAZY)
-    private Collection<Instalacion> instalacionCollection;
+    private List<Instalacion> instalacionList;
 
     public Detalle() {
     }
@@ -136,12 +136,12 @@ public class Detalle implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Instalacion> getInstalacionCollection() {
-        return instalacionCollection;
+    public List<Instalacion> getInstalacionList() {
+        return instalacionList;
     }
 
-    public void setInstalacionCollection(Collection<Instalacion> instalacionCollection) {
-        this.instalacionCollection = instalacionCollection;
+    public void setInstalacionList(List<Instalacion> instalacionList) {
+        this.instalacionList = instalacionList;
     }
 
     @Override

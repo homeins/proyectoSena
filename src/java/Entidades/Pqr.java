@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "pqr")
@@ -37,10 +37,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Pqr.findAll", query = "SELECT p FROM Pqr p")
     , @NamedQuery(name = "Pqr.findByIdPqr", query = "SELECT p FROM Pqr p WHERE p.idPqr = :idPqr")
     , @NamedQuery(name = "Pqr.findByCodigoPqr", query = "SELECT p FROM Pqr p WHERE p.codigoPqr = :codigoPqr")
+    , @NamedQuery(name = "Pqr.findByDocumentoUsu", query = "SELECT p FROM Pqr p WHERE p.documentoUsu = :documentoUsu")
     , @NamedQuery(name = "Pqr.findByNombreUsu", query = "SELECT p FROM Pqr p WHERE p.nombreUsu = :nombreUsu")
+    , @NamedQuery(name = "Pqr.findByApellidoUsu", query = "SELECT p FROM Pqr p WHERE p.apellidoUsu = :apellidoUsu")
     , @NamedQuery(name = "Pqr.findByEmailUsu", query = "SELECT p FROM Pqr p WHERE p.emailUsu = :emailUsu")
-    , @NamedQuery(name = "Pqr.findByTelefonoUsu", query = "SELECT p FROM Pqr p WHERE p.telefonoUsu = :telefonoUsu")
-    , @NamedQuery(name = "Pqr.findByAsunto", query = "SELECT p FROM Pqr p WHERE p.asunto = :asunto")
     , @NamedQuery(name = "Pqr.findByDetalle", query = "SELECT p FROM Pqr p WHERE p.detalle = :detalle")})
 public class Pqr implements Serializable {
 
@@ -57,9 +57,18 @@ public class Pqr implements Serializable {
     private String codigoPqr;
     @Basic(optional = false)
     @NotNull
+    @Column(name = "DOCUMENTO_USU")
+    private int documentoUsu;
+    @Basic(optional = false)
+    @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "NOMBRE_USU")
     private String nombreUsu;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 45)
+    @Column(name = "APELLIDO_USU")
+    private String apellidoUsu;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
@@ -67,21 +76,11 @@ public class Pqr implements Serializable {
     private String emailUsu;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "TELEFONO_USU")
-    private String telefonoUsu;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "ASUNTO")
-    private String asunto;
-    @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 500)
     @Column(name = "DETALLE")
     private String detalle;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pqrId", fetch = FetchType.LAZY)
-    private Collection<Garantia> garantiaCollection;
+    private List<Garantia> garantiaList;
     @JoinColumn(name = "INSTALACION_ID", referencedColumnName = "ID_INSTALACION")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Instalacion instalacionId;
@@ -93,13 +92,13 @@ public class Pqr implements Serializable {
         this.idPqr = idPqr;
     }
 
-    public Pqr(Integer idPqr, String codigoPqr, String nombreUsu, String emailUsu, String telefonoUsu, String asunto, String detalle) {
+    public Pqr(Integer idPqr, String codigoPqr, int documentoUsu, String nombreUsu, String apellidoUsu, String emailUsu, String detalle) {
         this.idPqr = idPqr;
         this.codigoPqr = codigoPqr;
+        this.documentoUsu = documentoUsu;
         this.nombreUsu = nombreUsu;
+        this.apellidoUsu = apellidoUsu;
         this.emailUsu = emailUsu;
-        this.telefonoUsu = telefonoUsu;
-        this.asunto = asunto;
         this.detalle = detalle;
     }
 
@@ -119,6 +118,14 @@ public class Pqr implements Serializable {
         this.codigoPqr = codigoPqr;
     }
 
+    public int getDocumentoUsu() {
+        return documentoUsu;
+    }
+
+    public void setDocumentoUsu(int documentoUsu) {
+        this.documentoUsu = documentoUsu;
+    }
+
     public String getNombreUsu() {
         return nombreUsu;
     }
@@ -127,28 +134,20 @@ public class Pqr implements Serializable {
         this.nombreUsu = nombreUsu;
     }
 
+    public String getApellidoUsu() {
+        return apellidoUsu;
+    }
+
+    public void setApellidoUsu(String apellidoUsu) {
+        this.apellidoUsu = apellidoUsu;
+    }
+
     public String getEmailUsu() {
         return emailUsu;
     }
 
     public void setEmailUsu(String emailUsu) {
         this.emailUsu = emailUsu;
-    }
-
-    public String getTelefonoUsu() {
-        return telefonoUsu;
-    }
-
-    public void setTelefonoUsu(String telefonoUsu) {
-        this.telefonoUsu = telefonoUsu;
-    }
-
-    public String getAsunto() {
-        return asunto;
-    }
-
-    public void setAsunto(String asunto) {
-        this.asunto = asunto;
     }
 
     public String getDetalle() {
@@ -160,12 +159,12 @@ public class Pqr implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Garantia> getGarantiaCollection() {
-        return garantiaCollection;
+    public List<Garantia> getGarantiaList() {
+        return garantiaList;
     }
 
-    public void setGarantiaCollection(Collection<Garantia> garantiaCollection) {
-        this.garantiaCollection = garantiaCollection;
+    public void setGarantiaList(List<Garantia> garantiaList) {
+        this.garantiaList = garantiaList;
     }
 
     public Instalacion getInstalacionId() {

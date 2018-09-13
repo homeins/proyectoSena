@@ -7,28 +7,29 @@ package Controladores;
 
 import Entidades.Rol;
 import Facade.RolFacade;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.inject.Named;
+import javax.enterprise.context.Dependent;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Named(value = "rolController")
-@SessionScoped
-public class RolController implements Serializable {
+@Dependent
+public class RolController {
 
     /**
      * Creates a new instance of RolController
      */
-    public RolController() {
+    public RolController() 
+    {
         rol = new Rol();
     }
+    
     @EJB
-    RolFacade rolFac;
+    RolFacade rolFacade;
     private Rol rol;
 
     public Rol getRol() {
@@ -38,10 +39,35 @@ public class RolController implements Serializable {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
-
-    public List<Rol> listarRoles() {
-
-        return rolFac.findAll();
-
+    
+    public void CrearRol()
+    {
+        rolFacade.create(rol);
+        rol = new Rol();
+    }
+    
+    public String ModificarRol(Rol newRol)
+    {
+        rol = newRol;
+        return "/Rol/Modificar?faces-redirect=true";
+    }
+    
+    public String ModificarRol()
+    {
+        rolFacade.edit(rol);
+        rol = new Rol();
+        return "/Rol/Listar?faces-redirect=true";
+    }
+    
+    public void EliminarRol(Rol newRol)
+    {
+        rol = newRol;
+        rolFacade.remove(rol);
+        rol = new Rol();
+    }
+    
+    public List<Rol> ListarRol()
+    {
+        return rolFacade.findAll();
     }
 }

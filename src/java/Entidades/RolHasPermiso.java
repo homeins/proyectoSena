@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "rol_has_permiso")

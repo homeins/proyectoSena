@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:r="http://xmlns.jcp.org/jsf/passthrough">
+
+    <body>
+        <ui:composition template="./Admin.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <ol class="breadcrumb teal lighten-5">
+                      <li class="breadcrumb-item font-weight-bold "><a href="Admin.xhtml">Inicio</a></li>
+                      <li class="breadcrumb-item active font-weight-bold">Listar Instalaciones</li>
+                    </ol>   
+                </div>
+                <div class="tecnicos text-center">
+                    <h1>Instalaciones Realizadas</h1>
+                    <a class="font-weight-bold pr-3" href="#">Generar Reporte</a>
+                    <a class="font-weight-bold" href="../../pruebaCharts.html">Historial de instalacions</a>
+                </div>
+                <f:view>
+                    <h:dataTable value="#{instalacionController.ListarInstalacion()}" var="instalacion" class="table table-hover">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Codigo Instalacion"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.codigoInstalacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Producto"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.detalleId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre Cliente"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.usuarioId.nombres} #{instalacion.usuarioId.apellidos}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Direccion"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.direccion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Fecha"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.fecha}">
+                                <f:convertDateTime pattern="dd/MM/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Hora"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.hora}">
+                                <f:convertDateTime pattern="HH:mm:ss" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Valor Instalacion"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.valorInstalacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Tecnico"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.usuarioId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Estado"/>
+                            </f:facet>
+                            <h:outputText value="#{instalacion.estado}"/>
+                        </h:column>
+                    </h:dataTable>
+                </f:view>
+            </ui:define>
+        </ui:composition>
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+        <script src="../resources/js/main.js" type="text/javascript"></script>
+    </body>
+</html>            

@@ -6,8 +6,8 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "instalacion")
@@ -81,13 +81,13 @@ public class Instalacion implements Serializable {
     @Column(name = "VALOR_INSTALACION")
     private double valorInstalacion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instalacionId", fetch = FetchType.LAZY)
-    private Collection<Encuesta> encuestaCollection;
+    private List<Encuesta> encuestaList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instalacionId", fetch = FetchType.LAZY)
-    private Collection<Documento> documentoCollection;
+    private List<Documento> documentoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instalacionId", fetch = FetchType.LAZY)
-    private Collection<Pqr> pqrCollection;
+    private List<Pqr> pqrList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instalacionId", fetch = FetchType.LAZY)
-    private Collection<Novedad> novedadCollection;
+    private List<Novedad> novedadList;
     @JoinColumn(name = "USUARIO_ID", referencedColumnName = "ID_USUARIO")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuario usuarioId;
@@ -168,39 +168,39 @@ public class Instalacion implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Encuesta> getEncuestaCollection() {
-        return encuestaCollection;
+    public List<Encuesta> getEncuestaList() {
+        return encuestaList;
     }
 
-    public void setEncuestaCollection(Collection<Encuesta> encuestaCollection) {
-        this.encuestaCollection = encuestaCollection;
-    }
-
-    @XmlTransient
-    public Collection<Documento> getDocumentoCollection() {
-        return documentoCollection;
-    }
-
-    public void setDocumentoCollection(Collection<Documento> documentoCollection) {
-        this.documentoCollection = documentoCollection;
+    public void setEncuestaList(List<Encuesta> encuestaList) {
+        this.encuestaList = encuestaList;
     }
 
     @XmlTransient
-    public Collection<Pqr> getPqrCollection() {
-        return pqrCollection;
+    public List<Documento> getDocumentoList() {
+        return documentoList;
     }
 
-    public void setPqrCollection(Collection<Pqr> pqrCollection) {
-        this.pqrCollection = pqrCollection;
+    public void setDocumentoList(List<Documento> documentoList) {
+        this.documentoList = documentoList;
     }
 
     @XmlTransient
-    public Collection<Novedad> getNovedadCollection() {
-        return novedadCollection;
+    public List<Pqr> getPqrList() {
+        return pqrList;
     }
 
-    public void setNovedadCollection(Collection<Novedad> novedadCollection) {
-        this.novedadCollection = novedadCollection;
+    public void setPqrList(List<Pqr> pqrList) {
+        this.pqrList = pqrList;
+    }
+
+    @XmlTransient
+    public List<Novedad> getNovedadList() {
+        return novedadList;
+    }
+
+    public void setNovedadList(List<Novedad> novedadList) {
+        this.novedadList = novedadList;
     }
 
     public Usuario getUsuarioId() {

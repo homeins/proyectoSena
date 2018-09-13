@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "tipo_documento")
@@ -55,7 +55,7 @@ public class TipoDocumento implements Serializable {
     @Column(name = "SIGLA")
     private String sigla;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "documentoTipoId", fetch = FetchType.LAZY)
-    private Collection<Usuario> usuarioCollection;
+    private List<Usuario> usuarioList;
 
     public TipoDocumento() {
     }
@@ -95,12 +95,12 @@ public class TipoDocumento implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Usuario> getUsuarioCollection() {
-        return usuarioCollection;
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
     }
 
-    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
-        this.usuarioCollection = usuarioCollection;
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
     }
 
     @Override
