@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <title>Diseñador-Home Installation</title>
+        <link rel="icon" type="image/png" href="../img/favicon.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,700" rel="stylesheet"/>
+        <link href="../resources/css/diseñador.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet"/>
+    </h:head>
+
+    <h:body>
+
+
+        <div id="top" class="top">
+            <ui:insert name="top">
+                <nav class="mb-1 navbar navbar-expand-lg navbar-dark elegant-color-dark">
+                    <div class="px-2 default-color rounded mr-2">
+                        <a class="text-white " onclick="abrirBarra()" title="Menú">
+                            <i class="fa fa-bars " aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="mr-auto text-center">
+                        <a class="navbar-brand mr-auto" href="#">Diseñador</a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-3" aria-controls="navbarSupportedContent-3" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- <span class="navbar-toggler-icon"></span> -->
+                    </button>
+                    <div class="" id="navbarSupportedContent-3">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <div class="sub-notify d-none">
+
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        <ul class="navbar-nav nav-flex-icons ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-bell-o"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light">
+                                    <i class="fa fa-envelope-o"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user blue-text"></i> Felipe Granados
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-default text-center " aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item waves-effect waves-light font-weight-normal " href="#">Ver perfil</a>
+                                    <a class="dropdown-item waves-effect waves-light font-weight-normal " href="#">Cerrar Sesión</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <!-- barra lateral -->
+
+                    <div id="barraLateral" class="barraLateral">
+                        <div class="">
+                            <div class="text-center">
+                                <img src="../img/avatar-diseñador.png" class="img-fluid rounded-circle" width="60" alt=""/>
+                            </div>
+                            <div class="text-center text-white mt-2 profile">
+                                <p class="h6-responsive">Felipe Granados</p>
+                                <span><i class="fa fa-circle green-text"></i> Online <span ><i class="fa fa-caret-down" aria-hidden="true"></i></span></span>
+                            </div>
+                        </div>
+
+                        <a href="javascript:void(0)" class="closebtn" onclick="cerrarBarra()">&times;</a>
+                        <!-- botones laterales -->
+                        <div class="container pt-3">
+                            <div class="">
+                                <!-- inicio boton -->
+                                <a class="" data-toggle="collapse" href="#cliente" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fa fa-address-book-o" aria-hidden="true"></i> Citas
+                                    <i class="fa fa-angle-down caret-align" aria-hidden="true"></i>
+                                </a>
+                                <div class="collapse" id="cliente">
+                                    <div class="actived">
+                                        <a href="CrearCliente.xhtml">Registrar Cliente</a>
+
+                                        <a href="citaAdmin.html" target="principal">Clientes Registrados</a>
+                                    </div>
+                                </div>
+                                <!-- finboton -->
+                            </div>
+                            <!-- botones laterales -->
+                            <div class="">
+                                <!-- inicio boton -->
+                                <a class="" data-toggle="collapse" href="#seguimiento" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fa fa-area-chart" aria-hidden="true"></i> Seguimiento
+                                    <i class="fa fa-angle-down caret-align" aria-hidden="true"></i>
+                                </a>
+                                <div class="collapse" id="seguimiento">
+                                    <div class="">
+                                        <a href="seguimiento.html" target="principal">Instalaciones Realizadas</a>
+                                        <a href="seguimiento.html" target="principal">Estado Citas</a>
+                                    </div>
+                                </div>
+                                <!-- finboton -->
+                            </div>
+                            <!-- botones laterales -->
+                            <div class="">
+                                <!-- inicio boton -->
+                                <a class="" data-toggle="collapse" href="#novedades" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="fa fa-book" aria-hidden="true"></i> Novedades
+                                    <i class="fa fa-angle-down caret-align" aria-hidden="true"></i>
+                                </a>
+                                <div class="collapse" id="novedades">
+                                    <div class="">
+                                        <a href="seguimiento.html" target="principal">Consultar Novedades</a>
+                                    </div>
+                                </div>
+                                <!-- finboton -->
+                            </div>
+
+
+                            <!-- cierre sesión -->
+                            <div class="exit-user">
+                                <a href="../../index.html" >Cerrar Sesíon
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- fin barra lateral -->
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">
+                    <section>
+                        <!-- breadcrumb -->
+                        <!-- <div>
+                          <nav class="breadcrumb">
+                            <a class="breadcrumb-item" href="#">Home</a>
+                            <a class="breadcrumb-item" href="#">Library</a>
+                            <a class="breadcrumb-item" href="#">Data</a>
+                            <span class="breadcrumb-item active">Bootstrap</span>
+                          </nav>
+                        </div> -->
+                        <div class="text-center py-4">
+                            <h1 class="h1-responsive">Actividad reciente</h1>
+                        </div>
+                        <div class="container mt-2 pb-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3">
+                                    <a href="CrearCliente.xhtml">
+                                        <div class="card zoom">
+                                            <h3 class="card-header default-color-dark white-text text-center py-5">Registrar clientes</h3>
+                                            <!-- <div class="card-body">
+                              
+                                              <h4 class="text-center"><i class="fa fa-arrow-up" aria-hidden="true"></i> 30</h4>
+                                              <p class="card-text text-center font-weight-normal">Nuevos clientes </p>
+                                            </div> -->
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="../error404.html">
+                                        <div class="card zoom">
+                                            <h3 class="card-header success-color-dark white-text text-center py-5">Estado Citas</h3>
+                                            <!-- <div class="card-body text-dark">
+                                              <h4 class="text-center"><i class="fa fa-arrow-up green-text" aria-hidden="true"></i> 10</h4>
+                                              <p class="card-text text-center font-weight-normal">Citas sin confirmar </p>
+                                            </div> -->
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a href="#">
+                                        <div class="card zoom">
+                                            <h3 class="card-header red darken-2 white-text text-center py-5">Novedades</h3>
+                                            <!-- <div class="card-body">
+                              
+                                              <h4 class="text-center"><i class="fa fa-arrow-up" aria-hidden="true"></i> 30</h4>
+                                              <p class="card-text text-center font-weight-normal">Nuevos clientes </p>
+                                            </div> -->
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="w-100 mt-5"></div>
+                                <div class="col-lg-10">
+                                    <div>
+                                        <div class="card zoom">
+                                            <h3 class="card-header primary-color white-text text-center">Estadisticas</h3>
+                                            <div class="card-body">
+                                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                            </div>
+                                            <div class="card-footer  text-center">
+                                                <a class="btn btn-info" href="../../pruebaCharts.html">Entrar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </ui:insert>
+            </div>
+        </div>
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js -->
+
+        <script src="../resources/js/mdb.js" type="text/javascript"></script>
+        <script src="../resources/js/main.js" type="text/javascript"></script>
+        <script src="../resources/js/sweetalert.min.js" type="text/javascript"></script>
+        <script src="../resources/js/canvasjs.min.js" type="text/javascript"></script>
+        <script>
+                            window.onload = function () {
+
+                                var chart = new CanvasJS.Chart("chartContainer", {
+                                    exportEnabled: true,
+                                    animationEnabled: true,
+                                    title: {
+                                        text: "Instalaciones en el mes"
+                                    },
+                                    legend: {
+                                        cursor: "pointer",
+                                        itemclick: explodePie
+                                    },
+                                    data: [{
+                                            type: "pie",
+                                            showInLegend: true,
+                                            toolTipContent: "{name}: <strong>{y}%</strong>",
+                                            indexLabel: "{name} - {y}%",
+                                            dataPoints: [{
+                                                    y: 26,
+                                                    name: "Instalaciones electricas",
+                                                    exploded: true
+                                                }, {
+                                                    y: 20,
+                                                    name: "Muebles"
+                                                }, {
+                                                    y: 5,
+                                                    name: "Cocinas"
+                                                }, {
+                                                    y: 3,
+                                                    name: "baños"
+                                                }, {
+                                                    y: 7,
+                                                    name: "Closets"
+                                                }, {
+                                                    y: 17,
+                                                    name: "Pisos"
+                                                }, {
+                                                    y: 22,
+                                                    name: "Otras instalaciones"
+                                                }]
+                                        }]
+                                });
+                                chart.render();
+                            }
+
+                            function explodePie(e) {
+                                if (typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                                    e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+                                } else {
+                                    e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+                                }
+                                e.chart.render();
+
+                            }
+        </script>
+    </h:body>
+
+</html>

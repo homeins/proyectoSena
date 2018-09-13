@@ -1,0 +1,465 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+
+}
+
+.header{
+	width: 100%;
+	background-color: black;
+	height: 50px;
+	color: #fafafa;
+}
+.user-log{
+	width:250px;
+	height: 55px;
+	background-color: rgba(15,17,13,.7);
+	float: left;
+	position: fixed;
+	padding: 15px;
+	z-index: 100;
+}
+	.user-title {
+	margin-left: 50px;
+    font-size: 1.2rem;
+	}
+.notificaciones{
+	width:100%;
+	height: 55px;
+	background-color: #1e282c;
+	float: left;
+	position: fixed;
+	z-index: 99;
+
+}
+		/*estilos sub menus barra notificaciones*/
+		.sub-notify {
+		    position: relative;
+		    display: inline-block;
+		    margin-top: 10px;
+		    left: 20%;
+		}
+
+		.sub-notify-btn {
+		    width: 160px;
+		    height: 45px;
+		    background-color: #1e282c;
+		    color: white;
+		    padding-left: 45px;
+		    font-size: 16px;
+		    border: none;
+		    cursor: pointer;
+		    text-align: left;
+		    font-family: 'Poppins', sans-serif;
+		}
+		.sub-notify-btn i{
+			margin-right: 10px;
+		}
+		 .caret-align{
+			float: right;
+			clear: both;
+		}
+		.sub-notify-content {
+		   display: none;
+		   position: absolute;
+		   background-color: #f9f9f9;
+		   min-width: 160px;
+		   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		   width: 170px;
+		   text-align: center;
+		}
+
+		.sub-notify-content a {
+		    color: black;
+		    padding: 12px 16px;
+		    text-decoration: none;
+		    display: block;
+		}
+
+		.sub-notify-content a:hover {
+			background-color: #f1f1f1;
+		}
+
+		.sub-notify:hover .sub-notify-content {
+		    display: inline-block;
+		}
+
+		.sub-notify:hover .sub-notify-btn {
+		    background-color: #566056;
+		    color: #111;
+		    border-left-style: solid;
+			border-color: #04DEAD;
+		}
+		 	/*estilos subfases*/
+		 	.sub-faseI-content {
+		   display: none;
+		   position: absolute;
+		   background-color: #f9f9f9;
+		   min-width: 160px;
+		   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		   width: 170px;
+		   text-align: center;
+		   margin: -50px 0px 0px 80px;
+		}
+		.sub-faseII-content {
+		   display: none;
+		   position: relative;
+		   background-color: #f9f9f9;
+		   min-width: 160px;
+		   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		   width: 170px;
+		   text-align: center;
+		}
+		.sub-notify-content:hover .sub-faseI-content {
+		    display: inline-block;
+		}
+		.sub-notifyI-content:hover .sub-faseII-content {
+		    display: inline-block;
+		}
+		 	/*estilos subfases*/
+
+		/* fine estilos sub menus barra notificaciones*/
+.nav{
+	float: right;
+}
+.img-rounded{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+/*estilos barra superior*/
+.nav li{
+	display: inline-block;
+	word-spacing: 10px;
+	margin-left: -70px;
+    margin-top: 18px;
+}
+.info-perfil{
+	position: absolute;
+    display: inline-block;
+    margin: -6px -25px auto;
+    margin-top: -25px;
+
+}
+.info-title {
+	padding: 0px 12px;
+	margin-right: 10px;
+	margin-top: -25px;
+}
+
+/*estilos barra lateral*/
+
+.barra-lateral{
+	position: absolute;
+	width: 250px;
+	height: 660px;
+	background-color: #1e282c;
+}
+.panel-usuario{
+	background-color: #1e282c;
+	padding: 30px;
+	color: #fafafa;
+	border-bottom: 1px solid #04DEAD;
+}
+.img-usuario img{
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+.info-usuario{
+	display: block;
+    margin-top: -50px;
+    margin-left: 55px;
+    padding: 0;
+}	
+	.info-usuario>p{
+		margin-bottom: 5px;
+		font-size: .9rem;
+	}
+	.info-usuario>span{
+		padding: 4px;
+		font-size: .8rem;
+	}
+	.info-usuario i{
+		color: green;
+		font-size:.8rem;
+	}
+.container-lateral{
+	margin-top: 30px;
+    border-bottom: 1px solid #04dead;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+
+}
+/*estilos sub menus barra lateral*/
+.sub-menu {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.sub-menu-btn {
+    width: 250px;
+    height: 70px;
+    background-color: #1e282c;
+    color: white;
+    padding-left: 45px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+.sub-menu-btn i{
+	margin-right: 10px;
+}
+ .caret-align{
+	float: right;
+	clear: both;
+}
+.sub-menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    /* z-index: 1; */
+    width: 250px;
+    margin-left: 100%;
+    top: 0%;
+}
+
+.sub-menu-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.sub-menu-content a:hover {
+	background-color: #f1f1f1;
+}
+
+.sub-menu:hover .sub-menu-content {
+    display: inline-block;
+}
+
+.sub-menu:hover .sub-menu-btn {
+    background-color: #566056;
+    color: #111;
+    border-left-style: solid;
+	border-color: #04DEAD;
+}
+/* fine estilos sub menus barra lateral*/
+/*estilos boton salida*/
+
+.exit-user{
+	text-align: center;
+	margin-top: 30px;
+	padding: 15px;
+}
+	.exit-user a{
+		text-decoration:none;
+		color: #fafafa;
+	}
+	.exit-user a:hover{
+		opacity: .5;
+	}
+/*estilos boton salida*/
+.lateral{
+	display: inline-block;
+	margin-bottom: 500px;
+}
+
+
+/*estilos iframe presentacion*/
+
+.carga{
+	width: 80%;
+	height: 600px;
+	padding: 20px;
+	float: right;
+	background-color:#f1f1f1;
+}
+.carga iframe{
+	width: 100%;
+	height: 100%;
+}
+
+/*estilos tabla clientes*/
+/* estilos botones tabla */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 100;
+    border-left: none;
+    height: auto;
+}
+.tabcontent-tecnicos{
+	float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 60%;
+    border-left: none;
+    height: auto;
+
+}
+
+/*estilos formulario interno-tablas*/
+
+.container-form{
+	width: 60%;
+	height: auto;
+	background-color: #fafafa;
+	position: absolute;
+	padding: 30px 20px;
+	box-shadow: 0px 0px 3px grey;
+}
+.container-form .form{
+	text-align: center;
+}
+label{
+	display: inline-block;
+	width: 30%;
+	text-align: left;
+	padding: 10px;
+}
+.head{
+	text-align: center;
+	margin-bottom: 2rem;
+}
+.form-input{
+	width: 60%;
+	height: 30px;
+    border:none;
+    border-bottom: 2px solid #14B3B1;
+    outline:none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif!important;
+}
+select{
+	width: 60%;
+	height: 30px;
+    border:none;
+    border-bottom: 2px solid #14B3B1;
+    outline:none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif!important;
+}
+option{
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif!important;
+}
+
+.button-style{
+	background: #04dead;
+    width: 70px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    color: #fafafa;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.form-buttons{
+	    margin: 25px 0px 0px ;
+}
+/*estilos formulario interno-tablas*/
+/*estilos tabla datos técnicos*/
+.tecnicos{
+	width: 100%;
+    padding: .6rem;
+    margin: auto;
+    text-align: left;
+}
+.tecnicos h1{
+	font-weight: 300;
+}
+.title-agenda{
+	width: 100%;
+    padding: .6rem;
+    margin: auto;
+    text-align: center;
+}
+.title-agenda h1{
+	font-weight: 300;
+}
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.table-header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+/*estilos tabla datos técnicos*/
+
+/*estilos iframe presentacion*/
+
+.carga{
+	width: 80%;
+	height: 700px;
+	padding: 20px;
+	float: right;
+	background-color:#f1f1f1;
+}
+.carga iframe{
+	width: 100%;
+	height: 100%;
+}
+
+/* fin estilos iframe presentacion*/

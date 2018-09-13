@@ -1,0 +1,590 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+  }
+  
+  body {
+	font-family: 'Poppins', sans-serif;
+  }
+  /* Let's get this party started */
+  ::-webkit-scrollbar {
+	width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	background: rgba(181, 181, 182, 0.418);  
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+  ::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(181, 182, 182, 0.418); 
+  }
+  
+  .header {
+	width: 100%;
+	background-color: black;
+	height: 50px;
+	color: #fafafa;
+  }
+  
+  .user-log {
+	width: 250px;
+	height: 55px;
+	background-color: rgba(15, 17, 13, .7);
+	float: left;
+	position: fixed;
+	padding: 15px;
+	z-index: 100;
+  }
+  
+  .user-title {
+	margin-left: 50px;
+	font-size: 1.2rem;
+  }
+  
+  .notificaciones {
+	width: 100%;
+	height: 55px;
+	background-color: #1e282c;
+	float: left;
+	position: fixed;
+	z-index: 99;
+  }
+  
+  
+  /*estilos sub menus barra notificaciones*/
+  
+  .sub-notify {
+	position: relative;
+	display: inline-block;
+	margin-top: 10px;
+	left: 20%;
+  }
+  
+  .sub-notify-btn {
+	width: 160px;
+	height: 45px;
+	background-color: transparent;
+	color: white;
+	padding-left: 45px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	text-align: left;
+	font-family: 'Poppins', sans-serif;
+  }
+  
+  .sub-notify-btn i {
+	margin-right: 10px;
+  }
+  
+  .caret-align {
+	float: right;
+	clear: both;
+  }
+  
+  .sub-notify-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	width: 170px;
+	text-align: center;
+  }
+  
+  .sub-notify-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+  }
+  
+  .sub-notify-content a:hover {
+	background-color: #c3e6cb;
+  }
+  
+  .sub-notify:hover .sub-notify-content {
+	display: inline-block;
+  }
+  
+  .sub-notify:hover .sub-notify-bt {
+	background-color: #566056;
+	color: #111;
+	border-left-style: solid;
+	border-color: #04DEAD;
+  }
+  
+  
+  /*estilos subfases*/
+  
+  .sub-faseI-content {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	width: 170px;
+	text-align: center;
+	margin: -50px 0px 0px 80px;
+  }
+  
+  .sub-faseII-content {
+	display: none;
+	position: relative;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	width: 170px;
+	text-align: center;
+  }
+  
+  .sub-notify-content:hover .sub-faseI-content {
+	display: inline-block;
+  }
+  
+  .sub-notifyI-content:hover .sub-faseII-content {
+	display: inline-block;
+  }
+  
+  
+  /*estilos subfases*/
+  
+  
+  /* fine estilos sub menus barra notificaciones*/
+  
+  .nav {
+	float: right;
+  }
+  
+  .img-rounded {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+  }
+  
+  .profile p {
+	font-size:15px;
+  }
+  .profile span  {
+	font-size:14px;
+  }
+  
+  .zoom{
+	transition: transform 600ms;
+  }
+  .zoom:hover {
+	-ms-transform: scale(1.1); /* IE 9 */
+	-webkit-transform: scale(1.1); /* Safari 3-8 */
+	transform: scale(1.1); 
+  }
+  .barraLateral {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 10vh;
+  }
+  
+  .barraLateral a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 1rem;
+	color: #dad8d8;
+	display: block;
+	transition: 0.3s;
+  }
+  
+  .barraLateral a:hover {
+	color: #20b6b4;
+	background-color:rgba(0, 0, 0, 0.2);
+  }
+  .barraLateral a:focus {
+	color: #3eabf3;
+	background-color:rgba(0, 0, 0, 1);
+  }
+  
+  .barraLateral .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+  }
+  
+  
+  /*estilos boton salida*/
+  
+  .exit-user {
+	text-align: center;
+	padding: 20px;
+  }
+  
+  .exit-user a {
+	text-decoration: none;
+	color: #fafafa;
+  }
+  
+  .exit-user a:hover {
+	opacity: .5;
+  }
+  
+  
+  /*estilos boton salida*/
+  
+  
+  /*estilos iframe presentacion*/
+  
+  .carga {
+	width: 100%;
+	height: 700px;
+	background-color: #f1f1f1;
+  }
+  
+  .carga iframe {
+	width: 100%;
+	height: 100%;
+  }
+  
+  
+  /* fin estilos iframe presentacion*/
+  
+  
+  /* estilos tabla*/
+  
+  .clientes {
+	width: 100%;
+	padding: 2rem;
+	margin: auto;
+	text-align: center;
+  }
+  
+  .clientes h1 {
+	font-weight: 300;
+  }
+  
+  .tab {
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 30%;
+	height: auto;
+  }
+  
+  
+  /* estilos botones tabla */
+  
+  .tab button {
+	display: block;
+	background-color: inherit;
+	color: black;
+	padding: 22px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 17px;
+  }
+  
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  .tab button.active {
+	background-color: #ccc;
+  }
+  
+  .tabcontent {
+	float: left;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 100;
+	border-left: none;
+	height: auto;
+  }
+  
+  .tabcontent-clientes {
+	/*float: left;*/
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 100%;
+	border-left: none;
+	height: auto;
+  }
+  
+  
+  /*estilos formulario interno-tablas*/
+  
+  .container-form {
+	width: 60%;
+	height: auto;
+	background-color: #fafafa;
+	position: absolute;
+	padding: 30px 20px;
+	box-shadow: 0px 0px 3px grey;
+  }
+  
+  .container-form .form {
+	text-align: center;
+  }
+  
+  label {
+	display: inline-block;
+	width: 30%;
+	text-align: left;
+	padding: 10px;
+  }
+  
+  .head {
+	text-align: center;
+	margin-bottom: 2rem;
+  }
+  
+  .form-input {
+	width: 60%;
+	height: 30px;
+	border: none;
+	border-bottom: 2px solid #14B3B1;
+	outline: none;
+	border-radius: 10px;
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif!important;
+  }
+  
+  select {
+	width: 60%;
+	height: 30px;
+	border: none;
+	border-bottom: 2px solid #14B3B1;
+	outline: none;
+	border-radius: 10px;
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif!important;
+  }
+  
+  option {
+	font-size: 1rem;
+	font-family: 'Poppins', sans-serif!important;
+  }
+  
+  .button-style {
+	background: #04dead;
+	width: 70px;
+	height: 40px;
+	padding: 10px;
+	border-radius: 5px;
+	border: none;
+	color: #fafafa;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+  }
+  
+  .form-buttons {
+	margin: 25px 0px 0px;
+  }
+  
+  
+  /*estilos formulario interno-tablas*/
+  
+  
+  /*estilos tabla datos técnicos*/
+  
+  .tab-tecnicos {
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 16%;
+	height: auto;
+  }
+  
+  
+  /* estilos botones tabla */
+  
+  .tab-tecnicos button {
+	display: block;
+	background-color: inherit;
+	color: black;
+	padding: 15px 22px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 17px;
+  }
+  
+  .tab-tecnicos button:hover {
+	background-color: #ddd;
+  }
+  
+  .tab-tecnicos button.active {
+	background-color: #ccc;
+  }
+  
+  .tabcontent {
+	float: left;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 100;
+	border-left: none;
+	height: auto;
+  }
+  
+  .tecnicos {
+	width: 100%;
+	padding: .6rem;
+	margin: auto;
+	text-align: left;
+  }
+  
+  .tecnicos h1 {
+	font-weight: 300;
+  }
+  
+  .tecnicos a {
+	text-decoration: none;
+	color: #20b6b4;
+  }
+  
+  #myInput {
+	background-image: url('/css/searchicon.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	width: 100%;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+  }
+  
+  #myTable {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #ddd;
+	font-size: 18px;
+  }
+  
+  #myTable th,
+  #myTable td {
+	text-align: left;
+	padding: 12px;
+  }
+  
+  #myTable tr {
+	border-bottom: 1px solid #ddd;
+  }
+  
+  #myTable tr.table-header,
+  #myTable tr:hover {
+	background-color: #c3e6cb;
+  }
+  
+  .acciones {
+	position: relative;
+	display: inline-block;
+	padding: 0px 5px;
+  }
+  
+  .acciones.editar {
+	background: #26B0E9;
+	border-radius: 5px;
+	border-style: outset;
+	border-color: #26B0E9;
+  }
+  
+  .acciones.eliminar {
+	background: #F1282D;
+	border-radius: 5px;
+	border-style: outset;
+	border-color: #F1282D;
+  }
+  
+  .acciones.guardar {
+	background: #0FE961;
+	border-radius: 5px;
+	border-style: outset;
+	border-color: #0FE961;
+  }
+  
+  .acciones.editar:hover {
+	background: #26B0E9;
+	border-radius: 5px;
+	color: #FAFAFA;
+  }
+  
+  .acciones.eliminar:hover {
+	background: #EA1D22;
+	border-radius: 5px;
+	color: #FAFAFA;
+  }
+  
+  .acciones.guardar:hover {
+	background: #0FE961;
+	border-radius: 5px;
+	color: #F1F1F1;
+  }
+  
+  .acciones .accionestext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+	font-size: .8rem;
+  }
+  
+  .acciones .accionestext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+  }
+  
+  .acciones:hover .accionestext {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+  
+  /*estilos tabla datos técnicos*/
+  
+  @media screen and (max-height: 450px) {
+	.barraLateral {
+	  padding-top: 15px;
+	}
+	.barraLateral a {
+	  font-size: 18px;
+	}
+  }
