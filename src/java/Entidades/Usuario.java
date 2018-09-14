@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "usuario")
@@ -54,7 +54,7 @@ public class Usuario implements Serializable {
     private Integer idUsuario;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 10)
+    @Size(min = 1, max = 11)
     @Column(name = "DOCUMENTO")
     private String documento;
     @Basic(optional = false)
@@ -94,7 +94,7 @@ public class Usuario implements Serializable {
     @Column(name = "ESTADO")
     private String estado;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "usuarioId", fetch = FetchType.LAZY)
-    private Collection<Instalacion> instalacionCollection;
+    private List<Instalacion> instalacionList;
     @JoinColumn(name = "DOCUMENTO_TIPO_ID", referencedColumnName = "ID_TIPO_DOCUMENTO")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private TipoDocumento documentoTipoId;
@@ -194,12 +194,12 @@ public class Usuario implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Instalacion> getInstalacionCollection() {
-        return instalacionCollection;
+    public List<Instalacion> getInstalacionList() {
+        return instalacionList;
     }
 
-    public void setInstalacionCollection(Collection<Instalacion> instalacionCollection) {
-        this.instalacionCollection = instalacionCollection;
+    public void setInstalacionList(List<Instalacion> instalacionList) {
+        this.instalacionList = instalacionList;
     }
 
     public TipoDocumento getDocumentoTipoId() {

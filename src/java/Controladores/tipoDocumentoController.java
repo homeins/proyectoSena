@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controladores;
 
 import Entidades.TipoDocumento;
@@ -10,32 +15,60 @@ import javax.ejb.EJB;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Named(value = "tipoDocumentoController")
 @SessionScoped
-public class tipoDocumentoController implements Serializable {
+public class TipoDocumentoController implements Serializable {
 
     /**
-     * Creates a new instance of tipoDocumentoController
+     * Creates a new instance of TipoDocumentoController
      */
-    public tipoDocumentoController() {
-        tipoDoc = new TipoDocumento();
+    public TipoDocumentoController() 
+    {
+        tipoDocumento = new TipoDocumento();
     }
+    
     @EJB
+    TipoDocumentoFacade tipoDocumentoFacade;
+    private TipoDocumento tipoDocumento;
 
-    TipoDocumentoFacade tipoDocFac;
-    private TipoDocumento tipoDoc;
-
-    public TipoDocumento getTipoDoc() {
-        return tipoDoc;
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
     }
 
-    public void setTipoDoc(TipoDocumento tipoDoc) {
-        this.tipoDoc = tipoDoc;
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
     }
-
-    public List<TipoDocumento> listarDocumento() {
-        return tipoDocFac.findAll();
+    
+    public void CrearTipoDocumento()
+    {
+        tipoDocumentoFacade.create(tipoDocumento);
+        tipoDocumento = new TipoDocumento();
+    }
+    
+    public String ModificarTipoDocumento(TipoDocumento newTipoDocumento)
+    {
+        tipoDocumento = newTipoDocumento;
+        return "/TipoDocumento/Modificar?faces-redirect=true";
+    }
+    
+    public String ModificarTipoDocumento()
+    {
+        tipoDocumentoFacade.edit(tipoDocumento);
+        tipoDocumento = new TipoDocumento();
+        return "/TipoDocumento/Listar?faces-redirect=true";
+    }
+    
+    public void EliminarTipoDocumento(TipoDocumento newTipoDocumento)
+    {
+        tipoDocumento = newTipoDocumento;
+        tipoDocumentoFacade.remove(tipoDocumento);
+        tipoDocumento = new TipoDocumento();
+    }
+    
+    public List<TipoDocumento> ListarTipoDocumento()
+    {
+        return tipoDocumentoFacade.findAll();
     }
 }

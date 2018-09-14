@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "rol")
@@ -53,9 +53,9 @@ public class Rol implements Serializable {
     @Column(name = "DESCRIPCION")
     private String descripcion;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolId", fetch = FetchType.LAZY)
-    private Collection<RolHasPermiso> rolHasPermisoCollection;
+    private List<RolHasPermiso> rolHasPermisoList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rolId", fetch = FetchType.LAZY)
-    private Collection<Usuario> usuarioCollection;
+    private List<Usuario> usuarioList;
 
     public Rol() {
     }
@@ -94,21 +94,21 @@ public class Rol implements Serializable {
     }
 
     @XmlTransient
-    public Collection<RolHasPermiso> getRolHasPermisoCollection() {
-        return rolHasPermisoCollection;
+    public List<RolHasPermiso> getRolHasPermisoList() {
+        return rolHasPermisoList;
     }
 
-    public void setRolHasPermisoCollection(Collection<RolHasPermiso> rolHasPermisoCollection) {
-        this.rolHasPermisoCollection = rolHasPermisoCollection;
+    public void setRolHasPermisoList(List<RolHasPermiso> rolHasPermisoList) {
+        this.rolHasPermisoList = rolHasPermisoList;
     }
 
     @XmlTransient
-    public Collection<Usuario> getUsuarioCollection() {
-        return usuarioCollection;
+    public List<Usuario> getUsuarioList() {
+        return usuarioList;
     }
 
-    public void setUsuarioCollection(Collection<Usuario> usuarioCollection) {
-        this.usuarioCollection = usuarioCollection;
+    public void setUsuarioList(List<Usuario> usuarioList) {
+        this.usuarioList = usuarioList;
     }
 
     @Override

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:r="http://xmlns.jcp.org/jsf/passthrough">
+
+    <body>
+
+        <ui:composition template="./Admin.xhtml">
+
+            <ui:define name="content">
+                    <div class="container py-5">
+                        <h:form id="createUser" class="col-12 col-lg-12 z-depth-1 p-3 rounded bg-white">
+                                        <h:selectManyCheckbox id="permisos" value="#{rolHasPermisoController.permiso.idPermiso}" layout="grid" r:columns="3">
+                                            <f:selectItems value="#{permisoController.ListarPermiso()}" var="per" itemLabel="#{per.nombre}" itemValue="#{per.idPermiso}" />
+                                        </h:selectManyCheckbox>
+                            
+                        </h:form>
+                    </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+                    

@@ -5,7 +5,9 @@
  */
 package Facade;
 
+import Entidades.Rol;
 import Entidades.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,12 +15,12 @@ import javax.persistence.Query;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Stateless
 public class UsuarioFacade extends AbstractFacade<Usuario> {
-
-    @PersistenceContext(unitName = "HomeInsFase4PU")
+    
+    @PersistenceContext(unitName = "HomeInstallationPU")
     private EntityManager em;
 
     @Override
@@ -29,18 +31,51 @@ public class UsuarioFacade extends AbstractFacade<Usuario> {
     public UsuarioFacade() {
         super(Usuario.class);
     }
-
-    public Usuario Login(String email, String contrasena) {
-        Usuario usuario = null;
-
-        try {
-            Query consulta = em.createNativeQuery("SELECT * FROM USUARIO WHERE EMAIL = ? AND CONTRASENA = ?", Usuario.class);
-            consulta.setParameter(1, email);
-            consulta.setParameter(2, contrasena);
-            usuario = (Usuario) consulta.getSingleResult();
-        } catch (Exception e) {
-            System.out.println("Error" + e.getMessage());
+    
+    public List<Usuario> ListadoCliente()
+    {
+        List<Usuario> usuario = null;
+        try
+        {
+            Query Consulta = em.createNativeQuery("SELECT * FROM USUARIO WHERE ROL_ID = 4;", Usuario.class);
+            usuario = (List<Usuario>) Consulta.getResultList();
+        }
+        catch (Exception e) 
+        {
+            System.out.println("ERROR" + e.getMessage());
         }
         return usuario;
+    }
+    
+    public List<Usuario> ListadoTecnicos()
+    {
+        List<Usuario> usuario = null;
+        try
+        {
+            Query Consulta = em.createNativeQuery("SELECT * FROM USUARIO WHERE ROL_ID = 3;", Usuario.class);
+            usuario = (List<Usuario>) Consulta.getResultList();
+        }
+        catch (Exception e) 
+        {
+            System.out.println("ERROR" + e.getMessage());
+        }
+        return usuario;
+    }
+
+    public Usuario Login(String email, String contrasena)
+    {
+        Usuario usuario = null;
+        try 
+        {
+            Query Consulta = em.createNativeQuery("SELECT * FROM USUARIO WHERE EMAIL = ? AND CONTRASENA = ?", Usuario.class);
+            Consulta.setParameter(1, email);
+            Consulta.setParameter(2, contrasena);
+            usuario = (Usuario) Consulta.getSingleResult();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("ERROR" + e.getMessage());
+        }
+        return usuario;    
     }
 }

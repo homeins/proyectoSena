@@ -3,139 +3,108 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:r="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-        <title>Diseñador-Home Installation</title>
-        <link rel="icon" type="image/png" href=""/>
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,500,700" rel="stylesheet"/>
-        <link href="../resources/css/diseñador.css" rel="stylesheet" type="text/css"/>
-        <link href="../resources/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <!-- Bootstrap core CSS -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
-        <!-- Material Design Bootstrap -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet"/>
-    </head>
-    <style type="text/css">
-        .error {
-            color: #F81111 !important;
-        }
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:r="http://xmlns.jcp.org/jsf/passthrough">
 
-        input:validate {
-            color: green;
-        }
-    </style>
     <body>
         <ui:composition template="./Disenador.xhtml">
             <ui:define name="content">
-                <!-- crear usuario -->
-                <section class=""> 
-                    <div class="container">
-                        <ol class="breadcrumb teal lighten-5">
-                            <li class="breadcrumb-item font-weight-bold "><a href="Disenador.xhtml">Inicio</a></li>
-                            <li class="breadcrumb-item active font-weight-bold">Registrar Cliente</li>
-                        </ol>
-                    </div>
+                <div class="container">
+                    <ol class="breadcrumb teal lighten-5">
+                      <li class="breadcrumb-item font-weight-bold "><a href="Disenador.xhtml">Inicio</a></li>
+                      <li class="breadcrumb-item active font-weight-bold">Crear Clientes</li>
+                    </ol>   
+                </div>
+                <div class="tecnicos text-center">
+                    <h1>Crear Clientes</h1>
+                </div>
                     <div class="container py-5">
-                        <!-- Formulario -->
-                        
-                        <div class="row justify-content-center py-4 coll" id="collapseExample">
-                            <h:form class="col-12 col-lg-12 z-depth-1 p-3 rounded bg-white" id="createUser">
-                                <div class="form-row">
-                                    <div class="col-lg-5 mx-auto">
-                                        <h:outputLabel value="Tipo Documento" for="documentoTipoId"></h:outputLabel>
-                                        <h:selectOneMenu id="documentoTipoId" value="#{usuarioController.tipoDoc.idTipoDocumento}" title="DocumentoTipo" class="md-form ">
-                                            <f:selectItems value="#{tipoDocumentoController.listarDocumento()}" var="doc" itemLabel="#{doc.tipo}" itemValue="#{doc.idTipoDocumento}"/>
-                                            <!-- <label for="nombre" class="font-weight-normal  validate   ">Nombres</label> -->
-                                        </h:selectOneMenu>
-                                    </div>
-
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form ">
-                                            <h:inputText r:type="text" class="form-control p-2 required texto" value="#{usuarioController.usuario.documento}" id="idUsuario" r:placeholder="Cedula" autocomplete="off"/>
-                                            <!-- <label for="nombre" class="font-weight-normal  validate   ">Nombres</label> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form ">
-                                            <h:inputText r:type="text" class="form-control p-2 required texto" value="#{usuarioController.usuario.nombres}" id="nombre" r:placeholder="Nombres" autocomplete="off"/>
-                                            <!-- <label for="nombre" class="font-weight-normal  validate   ">Nombres</label> -->
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form ">
-                                            <h:inputText r:type="text" class="form-control p-2 required texto" value="#{usuarioController.usuario.apellidos}" id="apellido" r:placeholder="Apellidos" autocomplete="off"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form ">
-                                            <h:inputText r:type="text" class="form-control p-2 required texto" value="#{usuarioController.usuario.direccion}" id="direccio" r:placeholder="Dirección" autocomplete="off"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form">
-                                            <h:inputText r:type="text" class="form-control p-2 required digits" value="#{usuarioController.usuario.telefono}" r:minlength="10"  r:maxlength="10" id="telefono" r:placeholder="Teléfono" autocomplete="off"/>
-                                            <!-- <label for="telefono" class="font-weight-normal">Teléfono</label> -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form ">
-                                            <h:inputText r:type="text" class="form-control p-2 required email" value="#{usuarioController.usuario.email}" id="email" r:placeholder="Correo Electrónico" autocomplete="off"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form">
-                                            <h:inputText r:type="password" class="form-control p-2 required " value="#{usuarioController.usuario.contrasena}" id="contrasena" r:placeholder="Contraseña" autocomplete="off"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <div class="md-form">
-                                            <h:inputText r:type="text" class="form-control p-2 required" value="#{usuarioController.usuario.estado}" id="estado" r:placeholder="Estado" autocomplete="off"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 mx-auto">
-                                        <h:outputLabel value="Cargo" for="rolId"></h:outputLabel>
-                                        <h:selectOneMenu id="rolId" value="#{usuarioController.rol.idRol}"  class="md-form ">
-                                            <f:selectItem  itemLabel="Cliente" itemValue="4"/>
+                        <h:form id="createUser" class="col-12 col-lg-12 z-depth-1 p-3 rounded bg-white">
+                            <div class="form-row">
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:selectOneMenu id="documentoTipoId" value="#{usuarioController.tipoDocumento.idTipoDocumento}" title="DocumentoTipoId" required="true" requiredMessage="The DocumentoTipoId field is required.">
+                                            <f:selectItem itemLabel="Seleccione Tipo Documento" itemValue="" noSelectionOption="true"/>
+                                            <f:selectItems  value="#{tipoDocumentoController.ListarTipoDocumento()}" var="tipoDoc" itemLabel="#{tipoDoc.tipo}" itemValue="#{tipoDoc.idTipoDocumento}"/>
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
-
-                                <div class="form-group text-center">
-                                    <h:commandButton class="btn btn-default mb-2" action="#{usuarioController.crearUsuario()}" value="Crear"  />
-
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form">
+                                        <h:inputText id="documento" r:type="text" value="#{usuarioController.usuario.documento}" r:placeholder="Documento" class="form-control p-2 required digits" r:minlength="8" r:maxlength="10" autocomplete="off" />
+                                    </div>
                                 </div>
-
-                            </h:form>
-                        </div>
-
-                    </div>
-                </section>
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <!-- Bootstrap tooltips -->
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-                <!-- Bootstrap core JavaScript -->
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
-                <!-- MDB core JavaScript https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js -->
-                <script src="../resources/js/jquery.validate.js" type="text/javascript"></script>
-                <script src="../resources/js/mdb.js" type="text/javascript"></script>
-                <script src="../resources/js/main.js" type="text/javascript"></script>
-                <script src="../resources/js/sweetalert.min.js" type="text/javascript"></script>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:inputText  id="nombres" r:type="text" value="#{usuarioController.usuario.nombres}" r:placeholder="Nombres" class="form-control p-2 required texto" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:inputText id="apellidos" r:type="text" value="#{usuarioController.usuario.apellidos}" r:placeholder="Apellidos" class="form-control p-2 required texto" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:inputText id="telefono" r:type="text" value="#{usuarioController.usuario.telefono}" r:placeholder="Telefono" class="form-control p-2 required digits" r:minlength="10" r:maxlength="10" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form">
+                                        <h:inputText id="direccion" r:type="text" value="#{usuarioController.usuario.direccion}" r:placeholder="Direccion" class="form-control p-2 required texto" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:inputText id="email" r:type="email" value="#{usuarioController.usuario.email}" r:placeholder="email" class="form-control validate form-input p-2 required email maxlength" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:selectOneMenu id="rolId" value="#{usuarioController.rol.idRol}" title="RolId" required="true" requiredMessage="The rol field is required.">
+                                            <f:selectItem itemLabel="Cliente" itemValue="4"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:inputText id="contrasena" r:type="password" value="#{usuarioController.usuario.contrasena}" r:placeholder="Contraseña" class="form-control p-2 required texto" autocomplete="off" />
+                                    </div>
+                                </div>                                   
+                                <div class="col-lg-5 mx-auto">
+                                    <div class="md-form ">
+                                        <h:selectOneMenu id="estado" value="#{usuarioController.usuario.estado}" title="RolId" required="true" requiredMessage="The Estado field is required.">
+                                            <f:selectItem itemLabel="Seleccione Estado" itemValue="" noSelectionOption="true"/>
+                                            <f:selectItem itemLabel="Activo" itemValue="Activo"/>
+                                            <f:selectItem itemLabel="Inactivo" itemValue="Inactivo"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="form-group text-center">
+                                <h:commandButton class="btn btn-default mb-2" value="CREAR" action="#{usuarioController.CrearUsuario()}"/>
+                            </div>
+                        </h:form>
+                    </div>                        
             </ui:define>
-
         </ui:composition>
-
-
-
-
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="../resources/js/mdb.js" type="text/javascript"></script>
+        <script src="../resources/js/main.js" type="text/javascript"></script>
+        <script src="../resources/js/sweetalert.min.js" type="text/javascript"></script>
     </body>
 </html>

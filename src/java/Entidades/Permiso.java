@@ -6,7 +6,7 @@
 package Entidades;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author stive
+ * @author yesid
  */
 @Entity
 @Table(name = "permiso")
@@ -60,9 +60,9 @@ public class Permiso implements Serializable {
     @Column(name = "ICON")
     private String icon;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "permisoId", fetch = FetchType.LAZY)
-    private Collection<RolHasPermiso> rolHasPermisoCollection;
+    private List<RolHasPermiso> rolHasPermisoList;
     @OneToMany(mappedBy = "permisoPadre", fetch = FetchType.LAZY)
-    private Collection<Permiso> permisoCollection;
+    private List<Permiso> permisoList;
     @JoinColumn(name = "PERMISO_PADRE", referencedColumnName = "ID_PERMISO")
     @ManyToOne(fetch = FetchType.LAZY)
     private Permiso permisoPadre;
@@ -112,21 +112,21 @@ public class Permiso implements Serializable {
     }
 
     @XmlTransient
-    public Collection<RolHasPermiso> getRolHasPermisoCollection() {
-        return rolHasPermisoCollection;
+    public List<RolHasPermiso> getRolHasPermisoList() {
+        return rolHasPermisoList;
     }
 
-    public void setRolHasPermisoCollection(Collection<RolHasPermiso> rolHasPermisoCollection) {
-        this.rolHasPermisoCollection = rolHasPermisoCollection;
+    public void setRolHasPermisoList(List<RolHasPermiso> rolHasPermisoList) {
+        this.rolHasPermisoList = rolHasPermisoList;
     }
 
     @XmlTransient
-    public Collection<Permiso> getPermisoCollection() {
-        return permisoCollection;
+    public List<Permiso> getPermisoList() {
+        return permisoList;
     }
 
-    public void setPermisoCollection(Collection<Permiso> permisoCollection) {
-        this.permisoCollection = permisoCollection;
+    public void setPermisoList(List<Permiso> permisoList) {
+        this.permisoList = permisoList;
     }
 
     public Permiso getPermisoPadre() {

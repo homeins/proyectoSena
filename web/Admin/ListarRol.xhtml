@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+        <ui:composition template="./Admin.xhtml">
+            <ui:define name="content">
+                <div class="container">
+                    <ol class="breadcrumb teal lighten-5">
+                      <li class="breadcrumb-item font-weight-bold "><a href="Admin.xhtml">Inicio</a></li>
+                      <li class="breadcrumb-item active font-weight-bold">Listar Rol</li>
+                    </ol>   
+                </div>
+                <div class="tecnicos text-center">
+                    <h1>Roles En el Sistema</h1>
+                    <a class="font-weight-bold pr-3" href="#">Generar Reporte</a>
+                    <a class="font-weight-bold" href="../../pruebaCharts.html">Historial de Clientes</a>
+                </div>
+                <f:view>
+                    <h:dataTable value="#{rolController.ListarRol()}" var="rol" class="table table-hover">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Tipo De Rol"/>
+                            </f:facet>
+                            <h:outputText value="#{rol.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="Descripcion"/>
+                            </f:facet>
+                            <h:outputText value="#{rol.descripcion}"/>
+                        </h:column>
+                    </h:dataTable>
+                </f:view>
+            </ui:define>
+        </ui:composition>
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+        <script src="../resources/js/main.js" type="text/javascript"></script>
+    </body>
+</html>
